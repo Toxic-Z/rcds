@@ -13,7 +13,7 @@ class RCTFAdminV1:
     def __init__(self, endpoint: str, login_token: Optional[str]):
         print(f"--- setting up rctfadminv1 object")
         print(f"--- endpoint: {endpoint}")
-        print(f"--- login_token: {b64encode(login_token).decode() if login_token is not None else '<none>'}")
+        print(f"--- login_token: {b64encode(login_token.encode()).decode() if login_token is not None else '<none>'}")
 
         self.session = BaseUrlSession(urljoin(endpoint, "api/v1/admin/"))
 
